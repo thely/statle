@@ -1,0 +1,106 @@
+/* this file is loaded by index.html and styles the page */
+@font-face {
+  font-family: "Charter";
+  src: url("fonts/charter_regular-webfont.woff") format("woff");
+  font-style: normal;
+  font-weight: normal; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Charter", serif;
+  font-size: 21px;
+  margin: 2em 1em;
+  line-height: 1.5em; }
+
+main, header {
+  margin: 0 auto;
+  width: 50%; }
+
+main {
+  margin-bottom: 6em; }
+
+header {
+  width: 75%; }
+
+h1 {
+  text-align: center;
+  line-height: 1.1; }
+
+.img-wrap {
+  max-width: 100%;
+  height: auto; }
+  .img-wrap img {
+    max-width: 100%;
+    height: auto; }
+  .img-wrap p {
+    color: grey;
+    font-family: sans-serif;
+    font-size: 0.6em;
+    text-align: center;
+    margin-top: 0; }
+
+span.highlight {
+  background-color: red; }
+
+.bad {
+  display: block;
+  font-family: "Arial", sans-serif;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 2em; }
+  .bad .bad-note {
+    color: grey;
+    display: block;
+    font-family: sans-serif;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    text-align: center; }
+  .bad .bad-inner {
+    background-color: #034f4f;
+    border: 24px solid #06b306;
+    color: white;
+    min-height: 200px;
+    opacity: 0; }
+  .bad.size2 {
+    width: 75%;
+    min-height: 300px; }
+    .bad.size2 .bad-inner {
+      font-size: 3em; }
+  .bad.visible .bad-inner {
+    opacity: 1; }
+
+.subscribe {
+  align-items: baseline;
+  background-color: white;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+  padding: 0.5em;
+  position: fixed;
+  bottom: -20%;
+  left: 0;
+  width: 100%; }
+  .subscribe p {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 2em; }
+  .subscribe .button {
+    background: lightgrey;
+    padding: 0.5em 0.7em;
+    font-size: 0.8em; }
+  .subscribe.visible {
+    display: flex;
+    bottom: 0;
+    transition: 0.5s bottom; }
+
+.replace {
+  color: grey;
+  font-style: italic; }
+
+hr {
+  border: 0px solid transparent;
+  border-bottom: 1px solid black;
+  margin: 3em 2em; }

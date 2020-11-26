@@ -1,0 +1,27 @@
+{
+  "name": "article-eater",
+  "version": "1.0.0",
+  "description": "some web art",
+  "main": "server.js",
+  "scripts": {
+    "js-build": "browserify main.js > ./public/bundle.js",
+    "js-watch": "watchify main.js -o ./public/bundle.js",
+    "scss-build": "node-sass style.scss public/style.css --output-style compressed",
+    "scss-watch": "node-sass --watch style.scss public/style.css",
+    "build": "npm run js-build && npm run scss-build && node server.js",
+    "watch": "npm run js-watch & npm run scss-watch & nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "express": "^4.17.1",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.6",
+    "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "intersection-observer": "^0.11.0",
+    "scrollama": "^2.2.1"
+  }
+}
