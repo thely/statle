@@ -376,34 +376,34 @@ blockquote {
   line-height: 0.9; }
 
 .bad[data-scrollama-index="0"] .bad-inner {
-  background-image: url("/images/money-img.jpg");
+  background-image: url("/statle/public/images/money-img.jpg");
   border-width: calc(var(--ad-border-width) / 2); }
 
 .bad[data-scrollama-index="1"] .bad-inner {
-  background-image: url("/images/sciatica.jpg");
+  background-image: url("/statle/public/images/sciatica.jpg");
   min-height: 300px; }
 
 .bad[data-scrollama-index="2"] .bad-inner {
-  background-image: url("/images/house-img.jpg"); }
+  background-image: url("/statle/public/images/house-img.jpg"); }
 
 .bad[data-scrollama-index="3"] .bad-inner {
-  background-image: url("/images/heart.jpg");
+  background-image: url("/statle/public/images/heart.jpg");
   border-width: 0px;
   min-height: 350px; }
 
 .bad[data-scrollama-index="4"] .bad-inner {
-  background-image: url("/images/couple.jpg");
+  background-image: url("/statle/public/images/couple.jpg");
   border-width: 0;
   min-height: 300px; }
 
 .bad[data-scrollama-index="5"] .bad-inner {
-  background-image: url("/images/turtle.jpg"); }
+  background-image: url("/statle/public/images/turtle.jpg"); }
 
 .bad[data-scrollama-index="6"] .bad-inner {
-  background-image: url("/images/business.jpg"); }
+  background-image: url("/statle/public/images/business.jpg"); }
 
 .bad[data-scrollama-index="7"] .bad-inner {
-  background-image: url("/images/dinner.jpg"); }
+  background-image: url("/statle/public/images/dinner.jpg"); }
 
 .bad.hide {
   opacity: 0;
