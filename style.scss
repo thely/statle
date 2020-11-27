@@ -11,6 +11,7 @@
 
 :root {
   --sans-text: "Red Hat Text", "Helvetica", "Arial", sans-serif;
+  --ad-border-width: 24px;
 }
 
 * {
@@ -72,19 +73,21 @@ main {
 }
 
 header {
-  width: 75%;
+  width: 55%;
 }
 
 h1 {
-  text-align: center;
+  // text-align: center;
   line-height: 1.1;
 }
 
 .img-wrap {
   max-width: 100%;
   height: auto;
+  text-align: center;
 
   img {
+    
     max-width: 100%;
     height: auto;
   }
@@ -105,9 +108,9 @@ span.highlight {
 .bad {
   display: block;
   font-family: "Arial", sans-serif;
-  width: 50%;
   margin: 0 auto;
   margin-bottom: 2em;
+  width: 50%;
 
   .bad-note {
     color: grey;
@@ -120,10 +123,11 @@ span.highlight {
 
   .bad-inner {
     background-color: #034f4f;
-    border: 24px solid #06b306;
+    border: var(--ad-border-width) solid #06b306;
     color: white;
     min-height: 200px;
     opacity: 0;
+    position: relative;
   }
 
   &.size2 {
@@ -138,6 +142,23 @@ span.highlight {
 
   &.visible .bad-inner {
     opacity: 1;
+  }
+
+  .close {
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: calc(var(--ad-border-width) * -1); 
+    right: calc(var(--ad-border-width) * -1);
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    line-height: 1;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
 }
@@ -236,6 +257,7 @@ hr {
       // border: 1px solid black;
       background-color: #f7dea0;
       border-radius: 0 5px 5px 0;
+      cursor: pointer;
       margin-bottom: 5px;
       padding: 0.4em;
       font-size: 2em;
@@ -244,6 +266,15 @@ hr {
       &.active {
         width: 110%;
       }
+    }
+    .tab-browsing {
+      background-color: pink;
+    }
+    .tab-fitness {
+      background-color: #e0ffd9;
+    }
+    .tab-network {
+      background-color: #e0c7f9;
     }
   }
 
@@ -254,7 +285,15 @@ hr {
     width: 90%;
   }
 
-  ul.browsing {
+  ul {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  ul {
     list-style-type: none;
     margin: 0;
     padding-left: 0;
@@ -280,7 +319,7 @@ hr {
     font-weight: 500;
     margin: 0;
   }
-  .date, .platform {
+  .date, .platform, .tag {
     color: grey;
     font-size: 0.8em;
     margin: 0;
@@ -459,4 +498,116 @@ blockquote {
   img {
     max-width: 100%;
   }
+}
+
+.begin-to-twist-parent {
+  background: linear-gradient(to bottom, white, black);
+  // margin: 0 -9999px;
+  // padding: 0 9999px;
+  padding-bottom: 4em;
+
+  .begin-to-twist {
+    color: white;
+    mix-blend-mode: difference;
+  }
+}
+
+.post-twist {
+  // background: linear-gradient(to bottom, black, white);
+  // margin: 0 -9999px;
+  // padding: 15em 9999px;
+  padding: 15em 0;
+  // padding-top: 10em;
+}
+
+.begin-to-twist-parent, .post-twist-parent {
+  background: linear-gradient(to bottom, white, black);
+  position: relative;
+  overflow-x: hidden;
+  width: 100vw;
+  left: 50%; right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+.post-twist-parent {
+  background: linear-gradient(to bottom, black, white);
+}
+
+.begin-to-twist, .post-twist {
+  margin: 0 auto;
+  width: 50%;
+}
+
+// .begin-to-twist-parent::before, .post-twist::before {
+//   background: linear-gradient(to bottom, white, black);
+//   content: "";
+//   position: absolute;
+//   top: 0; left: -25vw;
+//   width: 150vw;
+// }
+
+.bad .bad-inner {
+  background-size: cover;
+  background-position: center;
+  border-color: #392b27;
+  border-width: 0;
+  display: flex;
+  font-family: var(--sans-text);
+  font-weight: 700;
+  padding: 10px;
+}
+
+.bad:hover {
+  cursor: pointer;
+}
+
+.bad.size2 {
+  font-size: 1em;
+  line-height: 0.9;
+}
+
+.bad[data-scrollama-index="0"] .bad-inner {
+  background-image: url("/images/money-img.jpg");
+  border-width: calc(var(--ad-border-width) / 2);
+  
+}
+
+.bad[data-scrollama-index="1"] .bad-inner {
+  background-image: url("/images/sciatica.jpg");
+  min-height: 300px;
+}
+
+.bad[data-scrollama-index="2"] .bad-inner {
+  background-image: url("/images/house-img.jpg");
+}
+
+.bad[data-scrollama-index="3"] .bad-inner {
+  background-image: url("/images/heart.jpg");
+  
+  border-width: 0px;
+  min-height: 350px;
+}
+
+.bad[data-scrollama-index="4"] .bad-inner {
+  background-image: url("/images/couple.jpg");
+  border-width: 0;
+  min-height: 300px;
+}
+
+.bad[data-scrollama-index="5"] .bad-inner {
+  background-image: url("/images/turtle.jpg");
+}
+
+.bad[data-scrollama-index="6"] .bad-inner {
+  background-image: url("/images/business.jpg");
+}
+
+.bad[data-scrollama-index="7"] .bad-inner {
+  background-image: url("/images/dinner.jpg");
+}
+
+.bad.hide {
+  opacity: 0;
+  transition: opacity 3s;
 }

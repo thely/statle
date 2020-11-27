@@ -87,10 +87,12 @@ scroller2
   })
   .onStepExit((r) => {
     // stopJumbleWords(r.element);
+  })
+  .onStepProgress((r) => {
+    let x = r.progress * -40;
+    let y = r.progress * 50;
+    r.element.style.transform = `rotateY(${y}deg) rotateZ(${x}deg)`;
   });
-  // .onStepProgress((r) => {
-  //   console.log(r);
-  // });
 
 // --------------------------------
 // Letter jumblers
@@ -168,21 +170,17 @@ adscroller
   })
   .onStepEnter((r) => {
     r.element.classList.add("visible");
-    if (r.index > 0) {
-      document.querySelector(".subscribe").classList.add('visible');
-    }
-    // startJumbleLetters(r.element);
-  })
-  .onStepExit((r) => {
-    
-    // if (r.index > 0) {
-    //   document.querySelector(".ad.size1").classList.add("visible");
-    // }
-    // if (r.index > 1) {
-    //   document.querySelector(".ad.size2").classList.add("visible");
-    // }
-    // stopJumbleLetters(r.element);
   });
+
+document.querySelectorAll(".bad").forEach((e) => {
+  // console.log(e);
+  e.addEventListener("click", hideAdHandler, { once: true });
+});
+
+function hideAdHandler(e) {
+  // console.log("running handler");
+  e.target.closest(".bad").classList.add("hide");
+}
 
 // --------------------------------
 // Connecting words

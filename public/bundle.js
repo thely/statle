@@ -91,10 +91,11 @@ scroller2.setup({
   progress: true
 }).onStepEnter(function (r) {// startJumbleWords(r.element);
 }).onStepExit(function (r) {// stopJumbleWords(r.element);
-}); // .onStepProgress((r) => {
-//   console.log(r);
-// });
-// --------------------------------
+}).onStepProgress(function (r) {
+  var x = r.progress * -40;
+  var y = r.progress * 50;
+  r.element.style.transform = "rotateY(".concat(y, "deg) rotateZ(").concat(x, "deg)");
+}); // --------------------------------
 // Letter jumblers
 // --------------------------------
 // let saveStateTop = "";
@@ -165,24 +166,24 @@ adscroller.setup({
   offset: 0.5
 }).onStepEnter(function (r) {
   r.element.classList.add("visible");
+});
+document.querySelectorAll(".bad").forEach(function (e) {
+  // console.log(e);
+  e.addEventListener("click", hideAdHandler, {
+    once: true
+  });
+});
 
-  if (r.index > 0) {
-    document.querySelector(".subscribe").classList.add('visible');
-  } // startJumbleLetters(r.element);
-
-}).onStepExit(function (r) {// if (r.index > 0) {
-  //   document.querySelector(".ad.size1").classList.add("visible");
-  // }
-  // if (r.index > 1) {
-  //   document.querySelector(".ad.size2").classList.add("visible");
-  // }
-  // stopJumbleLetters(r.element);
-}); // --------------------------------
+function hideAdHandler(e) {
+  // console.log("running handler");
+  e.target.closest(".bad").classList.add("hide");
+} // --------------------------------
 // Connecting words
 // --------------------------------
 // function connectWords() {
 //   var paras = 
 // }
+
 
 prof.buildProfile();
 
@@ -2282,6 +2283,101 @@ var json = {
     "title": "\"Don't Need You\" - Edel Arni - \"dang pumpin'\" playlist | NONESTATION",
     "platform": "NONESTATION",
     "date": "6:10AM"
+  }],
+  "ads": [{
+    "title": "Finesz Eyeshadow Palette Out Now",
+    "date": "7:40PM"
+  }, {
+    "title": "Firearm License Course FREE ONLINE",
+    "date": "6:20PM"
+  }, {
+    "title": "YOU could earn $100k TODAY!",
+    "date": "3:37PM"
+  }, {
+    "title": "fast relief for sciatica pain",
+    "date": "3:35PM"
+  }, {
+    "title": "Listen to Stochazzi's hottest album yet. Live today at 1PM!",
+    "date": "2:42PM"
+  }, {
+    "title": "3 miles from work: houses starting in the mid $500s",
+    "date": "2:00PM"
+  }, {
+    "title": "five life hacks for better heart health",
+    "date": "1:15PM"
+  }, {
+    "title": "Latest Women's Fashions Are all on Etnyl",
+    "date": "1:00PM"
+  }, {
+    "title": "Online Continuing Education Classes at Milton Leg College",
+    "date": "12:55PM"
+  }, {
+    "title": "Christian Singles Looking for Love Near You",
+    "date": "12:15PM"
+  }, {
+    "title": "Fire Mountain 'Fierce Jessie' T-Shirts and Hoodies",
+    "date": "11:40AM"
+  }, {
+    "title": "Sea turtles need your help! Act fast to save a species",
+    "date": "11:15AM"
+  }, {
+    "title": "Latest Women's Fashions Are all on Etnyl",
+    "date": "10:30AM"
+  }, {
+    "title": "LLC info session: reserve your seat",
+    "date": "10:03AM"
+  }, {
+    "title": "Listen to Stochazzi's hottest album yet. Live today at 1PM!",
+    "date": "9:15AM"
+  }, {
+    "title": "50% off bagel sandwiches at Joe's To-Go",
+    "date": "8:15AM"
+  }],
+  "network": [{
+    "title": "Abby's Phone",
+    "date": "Sept 2034",
+    "rating": 0.96,
+    "tag": "personal"
+  }, {
+    "title": "FitSmart v4",
+    "date": "May 2034",
+    "rating": 0.90,
+    "tag": "personal"
+  }, {
+    "title": "Jane Schultz's Tablet",
+    "date": "Aug 2032",
+    "rating": 0.60,
+    "tag": "personal"
+  }, {
+    "title": "The Schultz Family Parrot",
+    "date": "July 2035",
+    "rating": 0.8,
+    "tag": "family"
+  }, {
+    "title": "Mausi MiniVac",
+    "date": "Dec 2034",
+    "rating": 0.3,
+    "tag": "family"
+  }, {
+    "title": "Bob Schultz's Laptop",
+    "date": "Feb 2030",
+    "rating": 0.2,
+    "tag": "family"
+  }, {
+    "title": "hey hey ring Jessi",
+    "date": "Feb 2033",
+    "rating": 0.8,
+    "tag": "friends"
+  }, {
+    "title": "Shawnee",
+    "date": "Oct 2032",
+    "rating": 0.68,
+    "tag": "friends"
+  }, {
+    "title": "Jumlee's Her Nan",
+    "date": "Sept 2032",
+    "rating": 0.68,
+    "tag": "friends"
   }]
 };
 
@@ -2303,6 +2399,63 @@ function buildProfile() {
   } finally {
     _iterator.f();
   }
+
+  var deals = document.querySelector(".abby-profile .deals");
+
+  var _iterator2 = _createForOfIteratorHelper(json.ads),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var _entry = _step2.value;
+
+      var _li = deals.appendChild(document.createElement("li"));
+
+      var _txt = "<h4 class=\"title\">".concat(_entry.title, "</h4>\n         <p><span class=\"date\">").concat(_entry.date, "</span></p>");
+
+      _li.innerHTML = _txt;
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+
+  var network = document.querySelector(".abby-profile .network");
+
+  var _iterator3 = _createForOfIteratorHelper(json.network),
+      _step3;
+
+  try {
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      var _entry2 = _step3.value;
+
+      var _li2 = network.appendChild(document.createElement("li"));
+
+      var _txt2 = "<h4 class=\"title\">".concat(_entry2.title, "</h4>\n         <p><span class=\"platform\">rating: ").concat(_entry2.rating, " | </span>\n         <span class=\"tag\">").concat(_entry2.tag, " | </span>\n         <span class=\"date\">added ").concat(_entry2.date, "</span></p>");
+
+      _li2.innerHTML = _txt2;
+    }
+  } catch (err) {
+    _iterator3.e(err);
+  } finally {
+    _iterator3.f();
+  }
+
+  var activeTab = document.querySelector(".abby-profile .tab.tab-browsing");
+  var activeBody = document.querySelector(".abby-profile .tab-body .browsing");
+  document.querySelectorAll(".abby-profile .tab").forEach(function (e) {
+    e.addEventListener("click", function (e) {
+      activeTab.classList.remove("active");
+      activeBody.classList.remove("active");
+      var classStr = e.target.classList[1];
+      classStr = classStr.substr(classStr.indexOf("-") + 1);
+      activeTab = e.target;
+      activeBody = document.querySelector(".abby-profile ul.".concat(classStr));
+      activeTab.classList.add("active");
+      activeBody.classList.add("active");
+    });
+  });
 }
 
 },{}]},{},[1]);

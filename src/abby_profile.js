@@ -495,6 +495,128 @@ var json = {
       "platform": "NONESTATION",
       "date": "6:10AM"
     },
+  ],
+  "ads": [
+    {
+      "title": "Finesz Eyeshadow Palette Out Now",
+      "date": "7:40PM",
+    },
+    {
+      "title": "Firearm License Course FREE ONLINE",
+      "date": "6:20PM",
+    },
+    {
+      "title": "YOU could earn $100k TODAY!",
+      "date": "3:37PM"
+    },
+    {
+      "title": "fast relief for sciatica pain",
+      "date": "3:35PM"
+    },
+    {
+      "title": "Listen to Stochazzi's hottest album yet. Live today at 1PM!",
+      "date": "2:42PM",
+    },
+    {
+      "title": "3 miles from work: houses starting in the mid $500s",
+      "date": "2:00PM"
+    },
+    {
+      "title": "five life hacks for better heart health",
+      "date": "1:15PM"
+    },
+    {
+      "title": "Latest Women's Fashions Are all on Etnyl",
+      "date": "1:00PM"
+    },
+    {
+      "title": "Online Continuing Education Classes at Milton Leg College",
+      "date": "12:55PM"
+    },
+    {
+      "title": "Christian Singles Looking for Love Near You",
+      "date": "12:15PM"
+    },
+    {
+      "title": "Fire Mountain 'Fierce Jessie' T-Shirts and Hoodies",
+      "date": "11:40AM"
+    },
+    {
+      "title": "Sea turtles need your help! Act fast to save a species",
+      "date": "11:15AM"
+    },
+    {
+      "title": "Latest Women's Fashions Are all on Etnyl",
+      "date": "10:30AM"
+    },
+    {
+      "title": "LLC info session: reserve your seat",
+      "date": "10:03AM",
+    },
+    {
+      "title": "Listen to Stochazzi's hottest album yet. Live today at 1PM!",
+      "date": "9:15AM",
+    },
+    {
+      "title": "50% off bagel sandwiches at Joe's To-Go",
+      "date": "8:15AM"
+    },
+  ],
+  "network": [
+    {
+      "title": "Abby's Phone",
+      "date": "Sept 2034",
+      "rating": 0.96,
+      "tag": "personal"
+    },
+    {
+      "title": "FitSmart v4",
+      "date": "May 2034",
+      "rating": 0.90,
+      "tag": "personal"
+    },
+    {
+      "title": "Jane Schultz's Tablet",
+      "date": "Aug 2032",
+      "rating": 0.60,
+      "tag": "personal"
+    },
+    {
+      "title": "The Schultz Family Parrot",
+      "date": "July 2035",
+      "rating": 0.8,
+      "tag": "family"
+    },
+    {
+      "title": "Mausi MiniVac",
+      "date": "Dec 2034",
+      "rating": 0.3,
+      "tag": "family"
+    },
+    {
+      "title": "Bob Schultz's Laptop",
+      "date": "Feb 2030",
+      "rating": 0.2,
+      "tag": "family"
+    },
+    {
+      "title": "hey hey ring Jessi",
+      "date": "Feb 2033",
+      "rating": 0.8,
+      "tag": "friends",
+    },
+    {
+      "title": "Shawnee",
+      "date": "Oct 2032",
+      "rating": 0.68,
+      "tag": "friends",
+    },
+    {
+      "title": "Jumlee's Her Nan",
+      "date": "Sept 2032",
+      "rating": 0.68,
+      "tag": "friends",
+    }
   ]
 }
 
@@ -508,6 +630,44 @@ function buildProfile() {
          <span class="date">${entry.date}</span></p>`;
     li.innerHTML = txt;
   }
+
+  let deals = document.querySelector(".abby-profile .deals");
+  for (let entry of json.ads) {
+    let li = deals.appendChild(document.createElement("li"));
+    let txt = 
+        `<h4 class="title">${entry.title}</h4>
+         <p><span class="date">${entry.date}</span></p>`;
+    li.innerHTML = txt;
+  }
+
+  let network = document.querySelector(".abby-profile .network");
+  for (let entry of json.network) {
+    let li = network.appendChild(document.createElement("li"));
+    let txt = 
+        `<h4 class="title">${entry.title}</h4>
+         <p><span class="platform">rating: ${entry.rating} | </span>
+         <span class="tag">${entry.tag} | </span>
+         <span class="date">added ${entry.date}</span></p>`;
+    li.innerHTML = txt;
+  }
+
+  let activeTab = document.querySelector(".abby-profile .tab.tab-browsing");
+  let activeBody = document.querySelector(".abby-profile .tab-body .browsing");
+
+  document.querySelectorAll(".abby-profile .tab").forEach((e) => {
+    e.addEventListener("click", function(e) {
+      activeTab.classList.remove("active");
+      activeBody.classList.remove("active");
+
+      let classStr = e.target.classList[1];
+      classStr = classStr.substr(classStr.indexOf("-") + 1);
+      activeTab = e.target;
+      activeBody = document.querySelector(`.abby-profile ul.${classStr}`);
+
+      activeTab.classList.add("active");
+      activeBody.classList.add("active");
+    })
+  })
 }
 
 export { buildProfile };
