@@ -1,6 +1,6 @@
 // client-side js, loaded by index.html
 // run by the browser each time the page is loaded
-
+var prof = require("./src/abby_profile.js");
 require("intersection-observer");
 const scrollama = require("scrollama");
 
@@ -41,7 +41,7 @@ scroller1
     offset: 0.2
   })
   .onStepEnter((r) => {
-    console.log(r);
+    // console.log(r);
     if (r.direction == "down" && Math.random() >= 0.5) {
       // startJumbleLetters(r.element);
     } else if (r.direction == "up") {
@@ -187,3 +187,5 @@ adscroller
 // function connectWords() {
 //   var paras = 
 // }
+
+prof.buildProfile();

@@ -28,5 +28,5 @@ const listener = app.listen(3001, () => {
 
 process.on('SIGINT', () => {
   console.log("closing server");
-  server.close();
+  app.close();
 });
