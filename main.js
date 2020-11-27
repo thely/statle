@@ -19,10 +19,10 @@ function loopParas(p) {
   return retval;
 }
 
-let main = document.querySelector("main");
-main.querySelectorAll("p").forEach((p) => {
-  p.innerHTML = loopParas(p.innerText);
-})
+// let main = document.querySelector("main");
+// main.querySelectorAll("p").forEach((p) => {
+//   p.innerHTML = loopParas(p.innerText);
+// })
 
 // --------------------------------
 // IntersectionObservers

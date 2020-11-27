@@ -43,15 +43,15 @@ function loopParas(p) {
   }
 
   return retval;
-}
-
-var main = document.querySelector("main");
-main.querySelectorAll("p").forEach(function (p) {
-  p.innerHTML = loopParas(p.innerText);
-}); // --------------------------------
+} // let main = document.querySelector("main");
+// main.querySelectorAll("p").forEach((p) => {
+//   p.innerHTML = loopParas(p.innerText);
+// })
+// --------------------------------
 // IntersectionObservers
 // --------------------------------
 // instantiate the scrollama
+
 
 var scroller1 = scrollama();
 var scroller1Range = scrollama();
