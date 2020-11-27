@@ -78,8 +78,9 @@ scroller1Range2
 
 scroller2
   .setup({
-    step: ".jumbler",
-    offset: 0.95
+    step: ".begin-to-twist",
+    offset: 0.5,
+    progress: true
   })
   .onStepEnter((r) => {
     // startJumbleWords(r.element);
@@ -87,6 +88,9 @@ scroller2
   .onStepExit((r) => {
     // stopJumbleWords(r.element);
   });
+  // .onStepProgress((r) => {
+  //   console.log(r);
+  // });
 
 // --------------------------------
 // Letter jumblers

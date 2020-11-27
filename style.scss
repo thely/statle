@@ -7,7 +7,11 @@
   font-weight: normal;
 }
 
-//dumnb change
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap');
+
+:root {
+  --sans-text: "Red Hat Text", "Helvetica", "Arial", sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -203,7 +207,7 @@ hr {
     width: 100%;
 
     h2 {
-      font-family: "Helvetica", "Arial", sans-serif;
+      font-family: var(--sans-text);
       font-size: 0.9em;
       margin: 0;
     }
@@ -259,9 +263,10 @@ hr {
     & > li {
       // background-color: lightgrey;
       border-bottom: 1px solid lightgrey;
-      font-family: "Helvetica", "Arial", sans-serif;
+      font-family: var(--sans-text);
       font-size: 0.9em;
       padding: 0.5em;
+      font-weight: 400;
     }
 
     & > li:hover {
@@ -272,6 +277,7 @@ hr {
 
   .title {
     font-size: 0.9em;
+    font-weight: 500;
     margin: 0;
   }
   .date, .platform {
@@ -292,6 +298,7 @@ hr {
               0 16px 16px rgba(0,0,0,0.12);
   border: 1px solid #f09edc;
   border-radius: 15px;
+  font-family: var(--sans-text);
   margin: 1em auto;
   // padding: 2em;
   width: 70%;
@@ -308,6 +315,7 @@ hr {
     border-radius: 15px 15px 0 0;
   }
   .social-body {
+    font-size: 0.9em;
     padding: 1.5em;
 
     p {
@@ -328,6 +336,17 @@ hr {
   width: 150%;
   margin-left: -25%;
   display: flex;
+  justify-content: space-between;
+}
+
+.caption {
+  color: grey;
+  font-family: var(--sans-text);
+  font-size: 0.7em;
+  line-height: 1.25;
+  margin-top: 0;
+  margin-bottom: 2em;
+  // flex: 0 0 100%;
 }
 
 blockquote {
@@ -335,4 +354,109 @@ blockquote {
   border-left: 2px solid blue;
   padding-left: 2em;
   margin-left: 1em;
+}
+
+.statle-buy {
+  font-family: var(--sans-text);
+  font-size: 0.8em;
+  line-height: 1.2;
+  margin-left: -40%;
+  width: 180%;
+}
+
+.buy-section-parent {
+  display: flex;
+  justify-content: center;
+
+  .buy-section {
+    padding: 1em;
+    width: 40%;
+  }
+
+  .buy-section ul {
+    box-shadow: rgba(10, 14, 29, 0.02) 0px 4px 32px 0px, rgba(10, 14, 29, 0.08) 0px 8px 64px 0px;
+    list-style-type: none;
+    padding-left: 0;
+    padding: 1em;
+
+    & > li {
+      border-bottom: 1px solid grey;
+      display: flex;
+
+      span {
+        display: inline-block;
+        flex: 0 1 auto;
+        margin-right: 1em;
+        padding: 0.5em;
+        width: 30%;
+      }
+
+      span:nth-of-type(2) {
+        // color: red;
+        width: auto;
+      }
+    }
+    & > li:last-of-type {
+      border-bottom: 0px solid transparent;
+    }
+  }
+
+  .buy-users ul > li {
+    span:nth-of-type(1) {
+      width: 40%;
+    }
+  }
+}
+
+.analytics-cards-parent {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+
+  .sub-card {
+    align-self: flex-start;
+    border-radius: 15px;
+    box-shadow: rgba(10, 14, 29, 0.02) 0px 4px 32px 0px, rgba(10, 14, 29, 0.08) 0px 8px 64px 0px;
+    flex: 0 1 auto;
+    width: 30%;
+  }
+
+  ul {
+    margin: 2em 1em;
+  }
+
+  .sub-card-header {
+    background-color: #389b84;
+    border-radius: 15px 15px 0 0;
+    color: white;
+    padding: 2em;
+    text-align: center;
+
+    h4 {
+      font-size: 2em;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .subdetail {
+      color: #cacaca;
+      font-style: italic;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.analytics-desc {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  width: 60%;
+}
+
+.analytics-large {
+  width: 110%;
+  margin-left: -5%;
+
+  img {
+    max-width: 100%;
+  }
 }

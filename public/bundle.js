@@ -86,11 +86,15 @@ scroller1Range2.setup({
   }
 });
 scroller2.setup({
-  step: ".jumbler",
-  offset: 0.95
+  step: ".begin-to-twist",
+  offset: 0.5,
+  progress: true
 }).onStepEnter(function (r) {// startJumbleWords(r.element);
 }).onStepExit(function (r) {// stopJumbleWords(r.element);
-}); // --------------------------------
+}); // .onStepProgress((r) => {
+//   console.log(r);
+// });
+// --------------------------------
 // Letter jumblers
 // --------------------------------
 // let saveStateTop = "";
